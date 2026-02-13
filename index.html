@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .calculator {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            padding: 20px;
+        }
+
+        .display {
+            background-color: #f8f9fa;
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+            height: 80px;
+            font-size: 2.5em;
+            text-align: right;
+            padding: 20px;
+            margin-bottom: 20px;
+            color: #333;
+            box-sizing: border-box;
+            font-family: monospace;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        button {
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.25em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background-color: #eee;
+            color: #333;
+        }
+
+        button:hover {
+            background-color: #e0e0e0;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .operator {
+            background-color: #ff9f43;
+            color: white;
+        }
+
+        .operator:hover {
+            background-color: #f39c12;
+        }
+
+        .equals {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .equals:hover {
+            background-color: #27ae60;
+        }
+
+        .clear {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .clear:hover {
+            background-color: #c0392b;
+        }
+
+        /* Secret Hint (visible on hover only) */
+        .secret-hint {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 0.8em;
+            color: #ccc;
+            cursor: default;
+        }
+
+        .secret-hint:hover {
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" class="display" id="display" readonly value="0">
+        <div class="buttons">
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button onclick="appendOperator('%')">%</button>
+            <button onclick="appendOperator('/')">/</button>
+            <button class="operator" onclick="deleteLast()">DEL</button>
+
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button class="operator" onclick="appendOperator('*')">×</button>
+
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button class="operator" onclick="appendOperator('-')">-</button>
+
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button class="operator" onclick="appendOperator('+')">+</button>
+
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="appendNumber('.')">.</button>
+            <button class="equals" onclick="calculate()"
+                style="grid-column: span 2; width: 100%; border-radius: 30px;">=</button>
+        </div>
+
+        <div style="text-align: center; margin-top: 15px;">
+            <a href="signup.html" style="font-size: 0.85em; color: #bbb; text-decoration: none;">New User?</a>
+        </div>
+    </div>
+
+    <div class="secret-hint" title="Enter your 6-digit code to login">π</div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        let currentInput = '0';
+        let isResult = false;
+
+        function updateDisplay() {
+            document.getElementById('display').value = currentInput;
+        }
+
+        function appendNumber(num) {
+            if (currentInput === '0' || isResult) {
+                currentInput = num;
+                isResult = false;
+            } else {
+                currentInput += num;
+            }
+            updateDisplay();
+        }
+
+        function appendOperator(op) {
+            isResult = false;
+            const lastChar = currentInput.slice(-1);
+            if (['+', '-', '*', '/', '%'].includes(lastChar)) {
+                currentInput = currentInput.slice(0, -1) + op;
+            } else {
+                currentInput += op;
+            }
+            updateDisplay();
+        }
+
+        function clearDisplay() {
+            currentInput = '0';
+            updateDisplay();
+        }
+
+        function deleteLast() {
+            if (currentInput.length > 1) {
+                currentInput = currentInput.slice(0, -1);
+            } else {
+                currentInput = '0';
+            }
+            updateDisplay();
+        }
+
+        function calculate() {
+            try {
+                // SECRET LOGIN LOGIC
+                // Check if input is a 6-digit code
+                if (currentInput.length === 6 && /^\d+$/.test(currentInput)) {
+                    const result = Auth.loginWithCode(currentInput);
+                    if (result.success) {
+                        // Success animation
+                        document.body.style.transition = "background-color 0.5s";
+                        document.body.style.backgroundColor = "#ffeef8"; // Pink flash
+                        setTimeout(() => {
+                            window.location.href = 'welcome.html';
+                        }, 500);
+                        return;
+                    }
+                }
+
+                // Normal Calculator Logic
+                // Use Function constructor for safer evaluation than eval()
+                // Replace visual operators with JS operators
+                const expression = currentInput.replace('×', '*');
+                const result = new Function('return ' + expression)();
+                currentInput = result.toString();
+                isResult = true;
+                updateDisplay();
+            } catch (error) {
+                currentInput = 'Error';
+                isResult = true;
+                updateDisplay();
+                setTimeout(() => {
+                    currentInput = '0';
+                    updateDisplay();
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+
+</html>
