@@ -2,165 +2,70 @@
   <img src="./img.png" alt="SHE_WANTS Banner" width="100%">
 </p>
 
-# SHE_WANTS 🌸
+
+# SHE WANTS 🎯
 
 ## Basic Details
 
-### Team Name: [Your Team Name]
+### Team Name: [SPARKLES]
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: [RIYA ROSE ROY] - [NSSCE PALAKKAD]
+- Member 2: [AMJUM SHAREEF] - [NSSCE PALAKKAD]
 
 ### Hosted Project Link
 [Your hosted link here]
 
 ### Project Description
-SHE_WANTS is a disguised women's safety and health application that provides period tracking, emergency pad requests with location-based matching, community support, and anonymous sisterhood chats - all hidden behind a calculator interface for privacy and safety.
 
-### The Problem Statement
-Women face multiple challenges including:
-- Lack of privacy when accessing period tracking apps
-- Emergency situations requiring sanitary products without nearby access
-- Need for safe, anonymous spaces to discuss women's health and relationships
-- Safety concerns when seeking help in unfamiliar locations
+[WOMEN EMPOWERMENT - THE  SITE WOULD BASED  SOLUTION FOR THE ENTIRE GIRLS OF THE WORLD. THE GIRLS WOULD FACE ANXIETY, STRESS , AND  DISTRESS IN THEIR PEROID TIME , SO IN ORDER TO THE MAKE SAFE . WE TEAM SPARKLES ENSURE THAT THE A SITE WHICH ENSURES THAT THE   NO WOMEN WOULD FEEL  UNSAFE OR BLAMED BECAUSE OF THIS REASONS . OUR MOTTO AND THEME IS FOR THAT THE WOMEN PROTECTION FOR IT.]
+
+### The Problem statement
+[Many women face difficulty in managing menstrual health, especially in public spaces, colleges, workplaces, or during travel. Access to sanitary pads during emergencies is often limited, and asking for help can feel uncomfortable or unsafe. Additionally, existing period tracking applications do not provide real-time community-based emergency support while ensuring user privacy and safety.?]
 
 ### The Solution
-A multi-featured application disguised as a calculator that provides:
-- **Disguised Entry**: Calculator interface protects privacy
-- **Period Tracker**: Smart cycle predictions and health insights
-- **Emergency Pad Requests**: Location-based matching with Google Maps integration
-- **Community Support**: Verified helpers network
-- **Sisterhood Chats**: Anonymous forum for support and advice
+[We propose a women-friendly web platform that combines period tracking with an emergency support system. The platform allows users to track their menstrual cycle while also providing a feature to request sanitary pads in urgent situations. When a user requests help, the system accesses their current location (with permission) and notifies nearby verified users who are willing to help.
+
+For user safety and privacy, the frontend initially appears as a simple calculator interface, ensuring discreet access. Only authenticated users can access the main features. This ensures safety, anonymity, and secure communication between users.
+
+The platform promotes community support, menstrual awareness, and women empowerment through technology.?]
+
 
 ---
 
 ## Technical Details
 
-### Technologies/Components Used
+### Technologies/ HTML, JS, GOOGLE MAP,SQLLITE
 
 **For Software:**
-- **Languages**: JavaScript (ES6+), HTML5, CSS3, SQL
-- **Frontend Framework**: React 18.2.0 with Vite 5.0.8
-- **Backend Framework**: Express.js 4.18.2
-- **Database**: SQLite3 5.1.7
-- **HTTP Client**: Axios 1.6.5
-- **Authentication**: bcrypt 5.1.1
-- **Dev Tools**: Nodemon, Concurrently
-- **APIs**: Geolocation API, Google Maps API
+- Languages used: [ JavaScript, Python, Java]
+- Frameworks used: [ React, Django, Spring Boot]
+- Libraries used: [e.g., axios, pandas, JUnit]
+- Tools used: [ VS Code, GIT HUB]
 
-**Key Libraries:**
-- `express` - Web server framework
-- `sqlite3` - Database management
-- `bcrypt` - Password hashing
-- `cors` - Cross-origin resource sharing
-- `body-parser` - Request parsing
-- `axios` - HTTP requests
-- `react` - UI framework
-- `vite` - Build tool and dev server
 
 ---
 
 ## Features
 
-### 🔒 Privacy & Security
-- **Calculator Disguise**: App appears as a functional calculator
-- **Secret Code Access**: Unlock with special code (1234=)
-- **Anonymous Posting**: Share experiences without revealing identity
-- **Secure Authentication**: Bcrypt password hashing
-
-### 🌸 Period Tracking
-- **Cycle Logging**: Track period start dates
-- **Smart Predictions**: Predicts next period based on average cycle length
-- **Cycle Phases**: Shows current phase (Menstrual, Follicular, Ovulation, Luteal)
-- **Comprehensive History**: View all past cycles with statistics
-- **Average Cycle Calculation**: Automatic cycle length averaging
-
-### 🩸 Emergency Pad Requests
-- **Location-Based**: Request pads with current GPS location
-- **Real-Time Matching**: See nearby requests from other users
-- **Google Maps Integration**: Get directions to help someone
-- **Distance Calculation**: Shows how far away requests are
-- **Status Tracking**: Mark requests as fulfilled
-- **Auto-Refresh**: Updates every 30 seconds
-
-### 💝 Community Support
-- **Helper Registration**: Become a verified community helper
-- **Bio & Location**: Share your story and availability
-- **Helper Discovery**: Find helpers in your area
-- **Mutual Aid Network**: Connect women who can help each other
-
-### 💬 Sisterhood Chats
-- **Category-Based Forums**: 
-  - 💔 Breakup Support
-  - 💆‍♀️ Self-Care
-  - 🏥 Health
-  - 💕 Relationships
-  - 💡 Advice
-  - 💬 General
-- **Anonymous Posting**: Post without revealing identity
-- **Like & Comment**: Engage with community posts
-- **Real-Time Updates**: See latest discussions
-- **Safe Space**: Moderated community for women
-
----
-
-## Installation Requirements
-
-### System Requirements
-- **Node.js**: 16.x or higher
-- **npm**: 8.x or higher
-- **RAM**: 2GB minimum, 4GB recommended
-- **Disk Space**: 500MB free
-- **Browser**: Chrome 90+, Firefox 88+, Safari 14+, or Edge 90+
-
-### Quick Install
-
-```bash
-# 1. Install Node.js (if not installed)
-# Download from https://nodejs.org/
-
-# 2. Clone/Download the project
-cd /path/to/SHE_WANTS
-
-# 3. Install dependencies
-npm install
-
-# 4. Run the application
-npm run dev
-```
-
-**That's it!** The app will open at:
-- Frontend: http://localhost:5173
-- Backend: http://localhost:3000
-
-### Detailed Installation
-See [INSTALLATION.md](INSTALLATION.md) for comprehensive installation guide including:
-- Step-by-step setup
-- Deployment options (Vercel, Heroku, VPS, Docker)
-- Environment variables
-- Troubleshooting
-- Security considerations
+List the key features of your project:
+- Feature 1:  IT CONTAIN THE  PEROID TRACKER FOR THE WOMEN
+- Feature 2: [IT BASICALLY ADD THAT THE  AND EMERGENCY BUTTON IF ANYBODY OF THE CONTAIN THE  SANITARY NAPKINS IN IT]
+- Feature 3: [CONTAIN THE SUPPORT SYSTEM FOR THE WOMEN NEEDED  LIKE THE STRESS REILEF FOR THE USERS]
+- Feature 4: [IT IS INTEGRATED  WITH THE GOOGLE MAP AND HELP THE USER TO SHARE THE LOCATION]
 
 ---
 
 ## Implementation
 
-### Installation
-```bash
-# Install all dependencies
-npm install
+### For Software:
+
+#### Installation
+
+[Installation commands - pm install and npm run dev]
 ```
 
-### Run
-```bash
-# Run both frontend and backend
-npm run dev
 
-# Or run separately:
-npm run server:dev  # Backend only
-npm run client:dev  # Frontend only
-```
 
 ### Build for Production
 ```bash
@@ -495,9 +400,8 @@ If you used AI tools during development, document them here for transparency:
 
 ## Team Contributions
 
-- [Name 1]: [Specific contributions - e.g., Frontend development, API integration, etc.]
-- [Name 2]: [Specific contributions - e.g., Backend development, Database design, etc.]
-- [Name 3]: [Specific contributions - e.g., UI/UX design, Testing, Documentation, etc.]
+- [RIYA ROSE ROY]: [BACKEND - API INTEGRATION OF THE GOOGLE AMP]
+- [AMJUM SHAREEF]: [FRONTEND- UI OF THE APP]
 
 ---
 
