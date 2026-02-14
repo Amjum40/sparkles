@@ -40,43 +40,90 @@ const NearbyRequests = ({ user }) => {
     };
 
     const handleHelp = async (request) => {
+        console.log('Help button clicked for request:', request);
+
         if (!navigator.geolocation) {
-            alert('Location access is needed to help.');
+            alert('❌ Location access is needed to help. Please enable location services.');
             return;
         }
 
+        console.log('Getting current position...');
         navigator.geolocation.getCurrentPosition(
             async (position) => {
                 const myLat = position.coords.latitude;
                 const myLng = position.coords.longitude;
+                console.log('My location:', myLat, myLng);
+                console.log('Request location:', request.latitude, request.longitude);
+
                 const distance = calculateDistance(myLat, myLng, request.latitude, request.longitude);
+                console.log('Distance calculated:', distance, 'km');
 
-                const confirmed = window.confirm(
-                    `Help ${request.username}?\n\nThey are approximately ${distance} km away.\n\nClick OK to mark this request as fulfilled and get directions.`
-                );
+                // Show info without blocking
+                const helpMessage = `Help ${request.username}?\n\nThey are approximately ${distance} km away.\n\nThis will:\n1. Mark the request as fulfilled\n2. Open Google Maps with directions`;
 
-                if (confirmed) {
+                if (window.confirm(helpMessage)) {
+                    console.log('User confirmed help');
+
                     try {
+                        // Mark as fulfilled
+                        console.log('Marking request as fulfilled...');
                         await axios.post('/api/pad-request/fulfill', {
                             requestId: request.id,
                             fulfilledBy: user.id
                         });
+                        console.log('Request marked as fulfilled');
 
-                        // Open Google Maps with directions
-                        const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${request.latitude},${request.longitude}`;
-                        window.open(mapsUrl, '_blank');
+                        // Create Google Maps URL with both origin and destination
+                        const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${myLat},${myLng}&destination=${request.latitude},${request.longitude}&travelmode=driving`;
+                        console.log('Opening Google Maps URL:', mapsUrl);
 
-                        alert('✅ Request marked as fulfilled! Opening directions...');
-                        fetchNearbyRequests(); // Refresh the list
+                        // Open in new tab
+                        const newWindow = window.open(mapsUrl, '_blank');
+
+                        if (newWindow) {
+                            console.log('Google Maps opened successfully');
+                            alert('✅ Request marked as fulfilled!\n🗺️ Opening Google Maps with directions...');
+                        } else {
+                            console.warn('Popup blocked');
+                            alert('✅ Request marked as fulfilled!\n\n⚠️ Please allow popups to open Google Maps.\n\nManual link:\n' + mapsUrl);
+                            // Try to navigate in same tab as fallback
+                            window.location.href = mapsUrl;
+                        }
+
+                        // Refresh the list
+                        fetchNearbyRequests();
                     } catch (err) {
                         console.error('Error fulfilling request:', err);
-                        alert('Failed to update request. Please try again.');
+                        alert('❌ Failed to update request. Please try again.\n\nError: ' + (err.response?.data?.error || err.message));
                     }
+                } else {
+                    console.log('User cancelled help');
                 }
             },
             (error) => {
                 console.error('Geolocation error:', error);
-                alert('Unable to get your location. Please enable location services.');
+                let errorMessage = 'Unable to get your location. ';
+
+                switch (error.code) {
+                    case error.PERMISSION_DENIED:
+                        errorMessage += 'Please enable location permissions for this site.';
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        errorMessage += 'Location information is unavailable.';
+                        break;
+                    case error.TIMEOUT:
+                        errorMessage += 'Location request timed out.';
+                        break;
+                    default:
+                        errorMessage += 'An unknown error occurred.';
+                }
+
+                alert('❌ ' + errorMessage);
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 0
             }
         );
     };
@@ -146,21 +193,44 @@ const NearbyRequests = ({ user }) => {
                                         {formatTime(request.created_at)}
                                     </p>
                                 </div>
-                                <button
-                                    onClick={() => handleHelp(request)}
-                                    style={{
-                                        background: 'linear-gradient(135deg, #ff8fa3, #ff6b9d)',
-                                        color: 'white',
-                                        border: 'none',
-                                        padding: '8px 16px',
-                                        borderRadius: '8px',
-                                        cursor: 'pointer',
-                                        fontSize: '0.85rem',
-                                        fontWeight: '600'
-                                    }}
-                                >
-                                    Help 💝
-                                </button>
+                                <div style={{ display: 'flex', gap: '8px', flexDirection: 'column' }}>
+                                    <button
+                                        onClick={() => handleHelp(request)}
+                                        style={{
+                                            background: 'linear-gradient(135deg, #ff8fa3, #ff6b9d)',
+                                            color: 'white',
+                                            border: 'none',
+                                            padding: '8px 16px',
+                                            borderRadius: '8px',
+                                            cursor: 'pointer',
+                                            fontSize: '0.85rem',
+                                            fontWeight: '600',
+                                            whiteSpace: 'nowrap'
+                                        }}
+                                    >
+                                        Help 💝
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${request.latitude},${request.longitude}`;
+                                            console.log('Opening map view:', mapsUrl);
+                                            window.open(mapsUrl, '_blank');
+                                        }}
+                                        style={{
+                                            background: 'white',
+                                            color: '#ff6b9d',
+                                            border: '1px solid #ff6b9d',
+                                            padding: '6px 12px',
+                                            borderRadius: '8px',
+                                            cursor: 'pointer',
+                                            fontSize: '0.75rem',
+                                            fontWeight: '600',
+                                            whiteSpace: 'nowrap'
+                                        }}
+                                    >
+                                        🗺️ View on Map
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     ))}

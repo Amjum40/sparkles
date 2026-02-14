@@ -53,6 +53,58 @@ const db = new verboseSqlite.Database(dbPath, (err) => {
       FOREIGN KEY (user_id) REFERENCES users (id),
       FOREIGN KEY (fulfilled_by) REFERENCES users (id)
     )`);
+
+    // Create Community Helpers table
+    db.run(`CREATE TABLE IF NOT EXISTS community_helpers (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id INTEGER NOT NULL,
+      username TEXT NOT NULL,
+      bio TEXT,
+      available BOOLEAN DEFAULT 1,
+      latitude REAL,
+      longitude REAL,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (user_id) REFERENCES users (id),
+      UNIQUE(user_id)
+    )`);
+
+    // Create Sisterhood Posts table
+    db.run(`CREATE TABLE IF NOT EXISTS sisterhood_posts (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id INTEGER NOT NULL,
+      username TEXT NOT NULL,
+      category TEXT NOT NULL,
+      content TEXT NOT NULL,
+      is_anonymous BOOLEAN DEFAULT 0,
+      likes_count INTEGER DEFAULT 0,
+      comments_count INTEGER DEFAULT 0,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (user_id) REFERENCES users (id)
+    )`);
+
+    // Create Post Comments table
+    db.run(`CREATE TABLE IF NOT EXISTS post_comments (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      post_id INTEGER NOT NULL,
+      user_id INTEGER NOT NULL,
+      username TEXT NOT NULL,
+      comment TEXT NOT NULL,
+      is_anonymous BOOLEAN DEFAULT 0,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (post_id) REFERENCES sisterhood_posts (id),
+      FOREIGN KEY (user_id) REFERENCES users (id)
+    )`);
+
+    // Create Post Likes table
+    db.run(`CREATE TABLE IF NOT EXISTS post_likes (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      post_id INTEGER NOT NULL,
+      user_id INTEGER NOT NULL,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (post_id) REFERENCES sisterhood_posts (id),
+      FOREIGN KEY (user_id) REFERENCES users (id),
+      UNIQUE(post_id, user_id)
+    )`);
   }
 });
 

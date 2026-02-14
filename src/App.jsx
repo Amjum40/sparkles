@@ -5,20 +5,22 @@ import Dashboard from './components/Dashboard';
 import './index.css';
 
 function App() {
-  const [isLocked, setIsLocked] = useState(false); // Changed to false to show Auth first
+  const [isLocked, setIsLocked] = useState(true); // Start locked (showing calculator)
   const [user, setUser] = useState(null);
 
   const handleUnlock = (enteredCode) => {
-    // If user is logged in, verify their secret code
+    // Secret code to access the auth screen (1234=)
+    if (enteredCode === '1234=') {
+      setIsLocked(false);
+      return true;
+    }
+
+    // If user is logged in, verify their personal secret code
     if (user && user.secret_code === enteredCode) {
       setIsLocked(false);
       return true;
     }
-    // If no user logged in, just unlock to show auth screen
-    if (!user) {
-      setIsLocked(false);
-      return true;
-    }
+
     return false;
   };
 
@@ -34,14 +36,12 @@ function App() {
 
   return (
     <div className="app">
-      {!user ? (
+      {isLocked ? (
+        <Calculator onUnlock={handleUnlock} user={user} />
+      ) : !user ? (
         <Auth onLogin={handleLogin} />
       ) : (
-        isLocked ? (
-          <Calculator onUnlock={handleUnlock} user={user} />
-        ) : (
-          <Dashboard user={user} onLogout={handleLogout} />
-        )
+        <Dashboard user={user} onLogout={handleLogout} />
       )}
     </div>
   );

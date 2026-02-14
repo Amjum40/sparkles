@@ -2,6 +2,8 @@ import React from 'react';
 import PeriodTracker from './PeriodTracker';
 import PadRequest from './PadRequest';
 import NearbyRequests from './NearbyRequests';
+import CommunitySupport from './CommunitySupport';
+import SisterhoodChats from './SisterhoodChats';
 
 const Dashboard = ({ user, onLogout }) => {
     return (
@@ -14,12 +16,8 @@ const Dashboard = ({ user, onLogout }) => {
             <PeriodTracker user={user} />
             <PadRequest user={user} />
             <NearbyRequests user={user} />
-
-            <div className="card">
-                <h3>Community Support</h3>
-                <p>Connect with verified helpers nearby.</p>
-                <button style={{ marginTop: '10px' }}>Find Helpers</button>
-            </div>
+            <CommunitySupport user={user} />
+            <SisterhoodChats user={user} />
         </div>
     );
 };

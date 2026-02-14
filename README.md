@@ -1,28 +1,37 @@
 <p align="center">
-  <img src="./img.png" alt="Project Banner" width="100%">
+  <img src="./img.png" alt="SHE_WANTS Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# SHE_WANTS 🌸
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: [Your Team Name]
 
 ### Team Members
 - Member 1: [Name] - [College]
 - Member 2: [Name] - [College]
 
 ### Hosted Project Link
-[mention your project hosted link here]
+[Your hosted link here]
 
 ### Project Description
-[2-3 lines about what your project does]
+SHE_WANTS is a disguised women's safety and health application that provides period tracking, emergency pad requests with location-based matching, community support, and anonymous sisterhood chats - all hidden behind a calculator interface for privacy and safety.
 
-### The Problem statement
-[What problem are you solving?]
+### The Problem Statement
+Women face multiple challenges including:
+- Lack of privacy when accessing period tracking apps
+- Emergency situations requiring sanitary products without nearby access
+- Need for safe, anonymous spaces to discuss women's health and relationships
+- Safety concerns when seeking help in unfamiliar locations
 
 ### The Solution
-[How are you solving it?]
+A multi-featured application disguised as a calculator that provides:
+- **Disguised Entry**: Calculator interface protects privacy
+- **Period Tracker**: Smart cycle predictions and health insights
+- **Emergency Pad Requests**: Location-based matching with Google Maps integration
+- **Community Support**: Verified helpers network
+- **Sisterhood Chats**: Anonymous forum for support and advice
 
 ---
 
@@ -31,49 +40,135 @@
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+- **Languages**: JavaScript (ES6+), HTML5, CSS3, SQL
+- **Frontend Framework**: React 18.2.0 with Vite 5.0.8
+- **Backend Framework**: Express.js 4.18.2
+- **Database**: SQLite3 5.1.7
+- **HTTP Client**: Axios 1.6.5
+- **Authentication**: bcrypt 5.1.1
+- **Dev Tools**: Nodemon, Concurrently
+- **APIs**: Geolocation API, Google Maps API
 
-**For Hardware:**
-- Main components: [List main components]
-- Specifications: [Technical specifications]
-- Tools required: [List tools needed]
+**Key Libraries:**
+- `express` - Web server framework
+- `sqlite3` - Database management
+- `bcrypt` - Password hashing
+- `cors` - Cross-origin resource sharing
+- `body-parser` - Request parsing
+- `axios` - HTTP requests
+- `react` - UI framework
+- `vite` - Build tool and dev server
 
 ---
 
 ## Features
 
-List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+### 🔒 Privacy & Security
+- **Calculator Disguise**: App appears as a functional calculator
+- **Secret Code Access**: Unlock with special code (1234=)
+- **Anonymous Posting**: Share experiences without revealing identity
+- **Secure Authentication**: Bcrypt password hashing
+
+### 🌸 Period Tracking
+- **Cycle Logging**: Track period start dates
+- **Smart Predictions**: Predicts next period based on average cycle length
+- **Cycle Phases**: Shows current phase (Menstrual, Follicular, Ovulation, Luteal)
+- **Comprehensive History**: View all past cycles with statistics
+- **Average Cycle Calculation**: Automatic cycle length averaging
+
+### 🩸 Emergency Pad Requests
+- **Location-Based**: Request pads with current GPS location
+- **Real-Time Matching**: See nearby requests from other users
+- **Google Maps Integration**: Get directions to help someone
+- **Distance Calculation**: Shows how far away requests are
+- **Status Tracking**: Mark requests as fulfilled
+- **Auto-Refresh**: Updates every 30 seconds
+
+### 💝 Community Support
+- **Helper Registration**: Become a verified community helper
+- **Bio & Location**: Share your story and availability
+- **Helper Discovery**: Find helpers in your area
+- **Mutual Aid Network**: Connect women who can help each other
+
+### 💬 Sisterhood Chats
+- **Category-Based Forums**: 
+  - 💔 Breakup Support
+  - 💆‍♀️ Self-Care
+  - 🏥 Health
+  - 💕 Relationships
+  - 💡 Advice
+  - 💬 General
+- **Anonymous Posting**: Post without revealing identity
+- **Like & Comment**: Engage with community posts
+- **Real-Time Updates**: See latest discussions
+- **Safe Space**: Moderated community for women
+
+---
+
+## Installation Requirements
+
+### System Requirements
+- **Node.js**: 16.x or higher
+- **npm**: 8.x or higher
+- **RAM**: 2GB minimum, 4GB recommended
+- **Disk Space**: 500MB free
+- **Browser**: Chrome 90+, Firefox 88+, Safari 14+, or Edge 90+
+
+### Quick Install
+
+```bash
+# 1. Install Node.js (if not installed)
+# Download from https://nodejs.org/
+
+# 2. Clone/Download the project
+cd /path/to/SHE_WANTS
+
+# 3. Install dependencies
+npm install
+
+# 4. Run the application
+npm run dev
+```
+
+**That's it!** The app will open at:
+- Frontend: http://localhost:5173
+- Backend: http://localhost:3000
+
+### Detailed Installation
+See [INSTALLATION.md](INSTALLATION.md) for comprehensive installation guide including:
+- Step-by-step setup
+- Deployment options (Vercel, Heroku, VPS, Docker)
+- Environment variables
+- Troubleshooting
+- Security considerations
 
 ---
 
 ## Implementation
 
-### For Software:
-
-#### Installation
+### Installation
 ```bash
-[Installation commands - e.g., npm install, pip install -r requirements.txt]
+# Install all dependencies
+npm install
 ```
 
-#### Run
+### Run
 ```bash
-[Run commands - e.g., npm start, python app.py]
+# Run both frontend and backend
+npm run dev
+
+# Or run separately:
+npm run server:dev  # Backend only
+npm run client:dev  # Frontend only
 ```
 
-### For Hardware:
+### Build for Production
+```bash
+# Build frontend
+npm run build
 
-#### Components Required
-[List all components needed with specifications]
-
-#### Circuit Setup
-[Explain how to set up the circuit]
+# Output will be in 'dist' folder
+```
 
 ---
 
