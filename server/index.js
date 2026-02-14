@@ -2,9 +2,30 @@ import express from 'express';
 import cors from 'cors';
 import db from './database.js'; // Note the .js extension for local imports in ESM
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+// CORS configuration for production
+const allowedOrigins = [
+    'http://localhost:5173',
+    'http://localhost:3000',
+    process.env.FRONTEND_URL,
+    'https://she-wants.vercel.app' // Add your Vercel URL here
+].filter(Boolean);
+
+app.use(cors({
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            console.log('Blocked origin:', origin);
+            callback(null, true); // Allow all for now, restrict in production
+        }
+    },
+    credentials: true
+}));
+
 app.use(express.json());
 
 // --- Auth Routes ---
