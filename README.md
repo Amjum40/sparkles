@@ -2,54 +2,53 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# SHE WANTS 🎯
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: [SPARKLES]
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: [RIYA ROSE ROY] - [NSSCE PALAKKAD]
+- Member 2: [AMJUM SHAREEF] - [NSSCE PALAKKAD]
 
 ### Hosted Project Link
 [mention your project hosted link here]
 
 ### Project Description
-[2-3 lines about what your project does]
+[WOMEN EMPOWERMENT - THE  SITE WOULD BASED  SOLUTION FOR THE ENTIRE GIRLS OF THE WORLD. THE GIRLS WOULD FACE ANXIETY, STRESS , AND  DISTRESS IN THEIR PEROID TIME , SO IN ORDER TO THE MAKE SAFE . WE TEAM SPARKLES ENSURE THAT THE A SITE WHICH ENSURES THAT THE   NO WOMEN WOULD FEEL  UNSAFE OR BLAMED BECAUSE OF THIS REASONS . OUR MOTTO AND THEME IS FOR THAT THE WOMEN PROTECTION FOR IT.]
 
 ### The Problem statement
-[What problem are you solving?]
+[Many women face difficulty in managing menstrual health, especially in public spaces, colleges, workplaces, or during travel. Access to sanitary pads during emergencies is often limited, and asking for help can feel uncomfortable or unsafe. Additionally, existing period tracking applications do not provide real-time community-based emergency support while ensuring user privacy and safety.?]
 
 ### The Solution
-[How are you solving it?]
+[We propose a women-friendly web platform that combines period tracking with an emergency support system. The platform allows users to track their menstrual cycle while also providing a feature to request sanitary pads in urgent situations. When a user requests help, the system accesses their current location (with permission) and notifies nearby verified users who are willing to help.
+
+For user safety and privacy, the frontend initially appears as a simple calculator interface, ensuring discreet access. Only authenticated users can access the main features. This ensures safety, anonymity, and secure communication between users.
+
+The platform promotes community support, menstrual awareness, and women empowerment through technology.?]
 
 ---
 
 ## Technical Details
 
-### Technologies/Components Used
+### Technologies/ HTML, JS, GOOGLE MAP,SQLLITE
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
+- Languages used: [ JavaScript, Python, Java]
+- Frameworks used: [ React, Django, Spring Boot]
 - Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
-
-**For Hardware:**
-- Main components: [List main components]
-- Specifications: [Technical specifications]
-- Tools required: [List tools needed]
+- Tools used: [ VS Code, GIT HUB]
 
 ---
 
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+- Feature 1:  IT CONTAIN THE  PEROID TRACKER FOR THE WOMEN
+- Feature 2: [IT BASICALLY ADD THAT THE  AND EMERGENCY BUTTON IF ANYBODY OF THE CONTAIN THE  SANITARY NAPKINS IN IT]
+- Feature 3: [CONTAIN THE SUPPORT SYSTEM FOR THE WOMEN NEEDED  LIKE THE STRESS REILEF FOR THE USERS]
+- Feature 4: [IT IS INTEGRATED  WITH THE GOOGLE MAP AND HELP THE USER TO SHARE THE LOCATION]
 
 ---
 
@@ -58,14 +57,10 @@ List the key features of your project:
 ### For Software:
 
 #### Installation
-```bash
-[Installation commands - e.g., npm install, pip install -r requirements.txt]
+
+[Installation commands - pm install and npm run dev]
 ```
 
-#### Run
-```bash
-[Run commands - e.g., npm start, python app.py]
-```
 
 ### For Hardware:
 
@@ -400,9 +395,8 @@ If you used AI tools during development, document them here for transparency:
 
 ## Team Contributions
 
-- [Name 1]: [Specific contributions - e.g., Frontend development, API integration, etc.]
-- [Name 2]: [Specific contributions - e.g., Backend development, Database design, etc.]
-- [Name 3]: [Specific contributions - e.g., UI/UX design, Testing, Documentation, etc.]
+- [RIYA ROSE ROY]: [BACKEND - API INTEGRATION OF THE GOOGLE AMP]
+- [AMJUM SHAREEF]: [FRONTEND- UI OF THE APP]
 
 ---
 
